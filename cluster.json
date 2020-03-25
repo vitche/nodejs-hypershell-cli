@@ -1,2 +1,41 @@
 [
+  {
+    "id": "1",
+    "msp": {
+      "identifier": "Org1MSP"
+    },
+    "administrator": {
+      "logOn": "Admin@org1.example.com",
+      "password": "adminpw"
+    },
+    "chainCode": {
+      "identifier": "6e38b6e9a4d54028add98d50161e2cea"
+    }
+  },
+  {
+    "id": "2",
+    "msp": {
+      "identifier": "Org1MSP"
+    },
+    "administrator": {
+      "logOn": "Admin@org1.example.com",
+      "password": "adminpw"
+    },
+    "chainCode": {
+      "identifier": "6e38b6e9a4d54028add98d50161e2cea"
+    }
+  },
+  {
+    "id": "3",
+    "msp": {
+      "identifier": "Org1MSP"
+    },
+    "administrator": {
+      "logOn": "Admin@org1.example.com",
+      "password": "adminpw"
+    },
+    "chainCode": {
+      "identifier": "6e38b6e9a4d54028add98d50161e2cea"
+    }
+  }
 ]

@@ -5,8 +5,11 @@
   "main": "main.js",
   "bin": {
     "hysh": "./cli.js"
-  },  "scripts": {
   },
+  "scripts": {},
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
 }
