@@ -1,41 +1,49 @@
-[
-  {
-    "id": "1",
-    "msp": {
-      "identifier": "Org1MSP"
-    },
-    "administrator": {
-      "logOn": "Admin@org1.example.com",
-      "password": "adminpw"
-    },
-    "chainCode": {
-      "identifier": "6e38b6e9a4d54028add98d50161e2cea"
-    }
+{
+  "gateway": {
+    "uri": "http://localhost:3002/chainCode/invoke"
   },
-  {
-    "id": "2",
-    "msp": {
-      "identifier": "Org1MSP"
-    },
-    "administrator": {
-      "logOn": "Admin@org1.example.com",
-      "password": "adminpw"
-    },
-    "chainCode": {
-      "identifier": "6e38b6e9a4d54028add98d50161e2cea"
-    }
+  "scheduler": {
+    "pattern": "* * * * *"
   },
-  {
-    "id": "3",
-    "msp": {
-      "identifier": "Org1MSP"
+  "nodes": [
+    {
+      "id": "1",
+      "msp": {
+        "identifier": "Org1MSP"
+      },
+      "administrator": {
+        "logOn": "Admin@org1.example.com",
+        "password": "adminpw"
+      },
+      "chainCode": {
+        "identifier": "8ba2cb4fa9fa4164b5fbf9239b68d5ef"
+      }
     },
-    "administrator": {
-      "logOn": "Admin@org1.example.com",
-      "password": "adminpw"
+    {
+      "id": "2",
+      "msp": {
+        "identifier": "Org1MSP"
+      },
+      "administrator": {
+        "logOn": "Admin@org1.example.com",
+        "password": "adminpw"
+      },
+      "chainCode": {
+        "identifier": "8ba2cb4fa9fa4164b5fbf9239b68d5ef"
+      }
     },
-    "chainCode": {
-      "identifier": "6e38b6e9a4d54028add98d50161e2cea"
+    {
+      "id": "3",
+      "msp": {
+        "identifier": "Org1MSP"
+      },
+      "administrator": {
+        "logOn": "Admin@org1.example.com",
+        "password": "adminpw"
+      },
+      "chainCode": {
+        "identifier": "8ba2cb4fa9fa4164b5fbf9239b68d5ef"
+      }
     }
-  }
-]
+  ]
+}
