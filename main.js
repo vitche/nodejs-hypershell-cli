@@ -28,13 +28,18 @@ module.exports = {
                 "requestBody": requestBody,
                 "nodeIdentifier": nodeIdentifier
             });
-            cronScript.execute(code, function (error, stdout, stderr) {
+            const callback = function (error, stdout, stderr) {
                 if (error) {
                     console.log(error);
                 } else {
                     console.log(stdout, stderr);
                 }
-            });
+            };
+            if (schedulerPattern) {
+                cronScript.schedule(schedulerPattern, code, callback);
+            } else {
+                cronScript.execute(code, callback);
+            }
         }
     }
 };
