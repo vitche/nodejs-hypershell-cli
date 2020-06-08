@@ -8,20 +8,33 @@ module.exports = {
             let node = clusterDefinition.nodes[index];
             node.parameters = [command];
 
+            const nodeIdentifier = node.id;
+            const requestBody = JSON.stringify(node);
+
             const job = function () {
                 const fetch = require('node-fetch');
                 fetch(gatewayUri, {
                     method: 'post',
-                    body: JSON.stringify(node),
+                    body: requestBody,
                     headers: {'Content-Type': 'application/json'},
                 })
                     .then(response => response.json())
-                    .then(function (json) {
-                        console.log('Node #' + node.id + ' response:\n', json.output);
+                    .then((json) => {
+                        console.log('Node #' + nodeIdentifier + ' response:', json.output);
                     });
             };
-            const code = cronScript.compile(job);
-            console.log(code);
+            const code = cronScript.compile(job, {
+                "gatewayUri": gatewayUri,
+                "requestBody": requestBody,
+                "nodeIdentifier": nodeIdentifier
+            });
+            cronScript.execute(code, function (error, stdout, stderr) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log(stdout, stderr);
+                }
+            });
         }
     }
 };
