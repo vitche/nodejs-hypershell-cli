@@ -8,7 +8,7 @@ module.exports = {
             let node = clusterDefinition.nodes[index];
             node.parameters = [command];
 
-            const nodeIdentifier = node.id;
+            const nodeIdentifier = node.identifier;
             const requestBody = JSON.stringify(node);
 
             const job = function () {
@@ -36,7 +36,7 @@ module.exports = {
                 }
             };
             if (schedulerPattern) {
-                cronScript.schedule(schedulerPattern, code, callback);
+                cronScript.schedule(nodeIdentifier, schedulerPattern, code, callback);
             } else {
                 cronScript.execute(code, callback);
             }

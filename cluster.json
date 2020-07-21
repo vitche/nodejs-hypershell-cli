@@ -1,13 +1,13 @@
 {
   "gateway": {
-    "uri": "http://localhost:3002/chainCode/invoke"
+    "uri": "http://0.0.0.0:3002/chainCode/invoke"
   },
   "scheduler": {
     "pattern": "* * * * *"
   },
   "nodes": [
     {
-      "id": "1",
+      "identifier": "1",
       "msp": {
         "identifier": "Org1MSP"
       },
@@ -16,11 +16,11 @@
         "password": "adminpw"
       },
       "chainCode": {
-        "identifier": "8ba2cb4fa9fa4164b5fbf9239b68d5ef"
+        "identifier": "8039bd673d0a4952b0d779daf1d403e4"
       }
     },
     {
-      "id": "2",
+      "identifier": "2",
       "msp": {
         "identifier": "Org1MSP"
       },
@@ -29,11 +29,11 @@
         "password": "adminpw"
       },
       "chainCode": {
-        "identifier": "8ba2cb4fa9fa4164b5fbf9239b68d5ef"
+        "identifier": "8039bd673d0a4952b0d779daf1d403e4"
       }
     },
     {
-      "id": "3",
+      "identifier": "3",
       "msp": {
         "identifier": "Org1MSP"
       },
@@ -42,7 +42,7 @@
         "password": "adminpw"
       },
       "chainCode": {
-        "identifier": "8ba2cb4fa9fa4164b5fbf9239b68d5ef"
+        "identifier": "8039bd673d0a4952b0d779daf1d403e4"
       }
     }
   ]
