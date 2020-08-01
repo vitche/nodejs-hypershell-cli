@@ -1,1 +1,3 @@
 pwd
+who
+pwd

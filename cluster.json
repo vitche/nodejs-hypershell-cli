@@ -7,7 +7,7 @@
   },
   "nodes": [
     {
-      "identifier": "1",
+      "identifier": "889068c93abc4978af9f066cefbd7792",
       "msp": {
         "identifier": "Org1MSP"
       },
@@ -16,33 +16,7 @@
         "password": "adminpw"
       },
       "chainCode": {
-        "identifier": "8039bd673d0a4952b0d779daf1d403e4"
-      }
-    },
-    {
-      "identifier": "2",
-      "msp": {
-        "identifier": "Org1MSP"
-      },
-      "administrator": {
-        "logOn": "Admin@org1.example.com",
-        "password": "adminpw"
-      },
-      "chainCode": {
-        "identifier": "8039bd673d0a4952b0d779daf1d403e4"
-      }
-    },
-    {
-      "identifier": "3",
-      "msp": {
-        "identifier": "Org1MSP"
-      },
-      "administrator": {
-        "logOn": "Admin@org1.example.com",
-        "password": "adminpw"
-      },
-      "chainCode": {
-        "identifier": "8039bd673d0a4952b0d779daf1d403e4"
+        "identifier": "889068c93abc4978af9f066cefbd7792"
       }
     }
   ]

@@ -2,7 +2,10 @@ const cronScript = require('nodejs-cron-script');
 module.exports = {
     execute: function (clusterDefinition, command) {
         const gatewayUri = clusterDefinition["gateway"]["uri"];
-        const schedulerPattern = clusterDefinition["scheduler"]["pattern"];
+        let schedulerPattern = undefined;
+        if (clusterDefinition["scheduler"]) {
+            schedulerPattern = clusterDefinition["scheduler"]["pattern"];
+        }
         for (let index in clusterDefinition.nodes) {
 
             let node = clusterDefinition.nodes[index];
