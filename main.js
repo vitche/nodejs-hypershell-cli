@@ -9,13 +9,18 @@ module.exports = {
         for (let index in clusterDefinition.nodes) {
 
             let node = clusterDefinition.nodes[index];
+            command = Buffer.from(command).toString('base64');
             node.parameters = [command];
 
             const nodeIdentifier = node.identifier;
-            const requestBody = JSON.stringify(node);
+            let requestBody = JSON.stringify(node);
 
             const job = function () {
                 const fetch = require('node-fetch');
+                requestBody = JSON.parse(requestBody);
+                const command = requestBody.parameters[0];
+                requestBody.parameters[0] = Buffer.from(command, 'base64').toString();
+                requestBody = JSON.stringify(requestBody);
                 fetch(gatewayUri, {
                     method: 'post',
                     body: requestBody,
