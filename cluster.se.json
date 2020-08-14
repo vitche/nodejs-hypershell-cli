@@ -1,0 +1,33 @@
+{
+  "gateway": {
+    "uri": "http://softethic.com:3002/chainCode/invoke"
+  },
+  "nodes": [
+    {
+      "identifier": "PI-3-NODE-4",
+      "msp": {
+        "identifier": "Org1MSP"
+      },
+      "administrator": {
+        "logOn": "Admin@org1.example.com",
+        "password": "adminpw"
+      },
+      "chainCode": {
+        "identifier": "f173cd09d3bf4697a599b852f6c2c4cc"
+      }
+    },
+    {
+      "identifier": "PI-3-NODE-5",
+      "msp": {
+        "identifier": "Org1MSP"
+      },
+      "administrator": {
+        "logOn": "Admin@org1.example.com",
+        "password": "adminpw"
+      },
+      "chainCode": {
+        "identifier": "42909526af204e19b435465ae2667c14"
+      }
+    }
+  ]
+}
