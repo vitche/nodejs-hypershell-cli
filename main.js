@@ -1,6 +1,6 @@
 const cronScript = require('nodejs-cron-script');
 module.exports = {
-    execute: function (clusterDefinition, command) {
+    execute: function (clusterDefinition, command, outputFormat) {
         const gatewayUri = clusterDefinition["gateway"]["uri"];
         let schedulerPattern = undefined;
         if (clusterDefinition["scheduler"]) {
@@ -28,12 +28,20 @@ module.exports = {
                         return response.json();
                     })
                     .then((json) => {
-                        if (json.output) {
-                            console.log('Node #' + nodeIdentifier + ' response:', json.output);
+                        switch (outputFormat) {
+                            case "stream":
+                                if (json.output) {
+                                    console.log(nodeIdentifier + ':$', json.output);
+                                }
+                                if (json.error) {
+                                    console.log(nodeIdentifier + ':&2$', json.error);
+                                }
+                                break;
+                            case "stream+json":
+                                console.log(JSON.stringify(json) + ",");
+                                break;
                         }
-                        if (json.error) {
-                            console.log('Node #' + nodeIdentifier + ' error:', json.error);
-                        }
+
                     });
             };
             if (schedulerPattern) {
