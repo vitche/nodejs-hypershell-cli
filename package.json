@@ -4,13 +4,17 @@
   "description": "",
   "main": "main.js",
   "bin": {
-    "hysh": "./cli.js"
+    "hysh": "./cli.js",
+    "hyshm": "./cli.js"
   },
-  "scripts": {},
+  "scripts": {
+    "hyshm:test:install": "hyshm cluster.json install --organization-identifier Org1MSP --administrator-logon Admin@org1.example.com --administrator-password adminpw --chaincode-name shell-linux --chaincode-identifier b62b3cb05bbb4d2ab27bb1e67137ea3b --chaincode-version 1"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "node-fetch": "^2.6.0",
-    "nodejs-cron-script": "git+https://github.com/vitche/nodejs-cron-script.git"
+    "nodejs-cron-script": "git+https://github.com/vitche/nodejs-cron-script.git",
+    "stdio": "^2.1.1"
   }
 }

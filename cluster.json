@@ -1,23 +1,13 @@
 {
+  "installer": {
+    "uri": "http://34.239.11.167:7001"
+  },
   "gateway": {
-    "uri": "http://0.0.0.0:3002/chainCode/invoke"
+    "uri": "http://34.239.11.167:7002"
   },
   "scheduler": {
     "pattern": "* * * * *"
   },
   "nodes": [
-    {
-      "identifier": "889068c93abc4978af9f066cefbd7792",
-      "msp": {
-        "identifier": "Org1MSP"
-      },
-      "administrator": {
-        "logOn": "Admin@org1.example.com",
-        "password": "adminpw"
-      },
-      "chainCode": {
-        "identifier": "889068c93abc4978af9f066cefbd7792"
-      }
-    }
   ]
 }
