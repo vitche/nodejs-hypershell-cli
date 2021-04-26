@@ -36,12 +36,17 @@ if (4 > process.argv.length) {
       required: true
     },
     "chaincode-identifier": {
-      args: 1,
-      required: true
+      args: [0, 1],
+      required: false
     },
     "chaincode-version": {
       args: 1,
       required: true
+    },
+    "format": {
+      args: 1,
+      required: false,
+      default: "stream+json"
     }
   });
 
@@ -54,14 +59,16 @@ if (4 > process.argv.length) {
         let clusterDefinition = fs.readFileSync(clusterDefinitionPath);
         clusterDefinition = JSON.parse(clusterDefinition.toString());
         main.install(clusterDefinition, options, (result) => {
-          console.log("hyshm install", result);
+          console.log(JSON.stringify(result));
         });
         break;
       }
       case "instantiate": {
         let clusterDefinition = fs.readFileSync(clusterDefinitionPath);
         clusterDefinition = JSON.parse(clusterDefinition.toString());
-        main.instantiate(clusterDefinition, options);
+        main.instantiate(clusterDefinition, options, (result) => {
+          console.log(JSON.stringify(result));
+        });
         break;
       }
     }

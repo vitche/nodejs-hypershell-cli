@@ -90,7 +90,32 @@ module.exports = {
         callback(json)
       });
   },
-  instantiate: function (clusterDefinition, args, callback) {
-    console.log("hyshm", "instantiate", clusterDefinition, options);
+  instantiate: function (clusterDefinition, options, callback) {
+    const fetch = require('node-fetch');
+    let requestBody = {
+      msp: {
+        identifier: options["organization-identifier"]
+      },
+      administrator: {
+        logOn: options["administrator-logon"],
+        password: options["administrator-password"]
+      },
+      chainCode: {
+        name: options["chaincode-name"],
+        version: options["chaincode-version"]
+      }
+    };
+    requestBody = JSON.stringify(requestBody);
+    fetch(clusterDefinition.installer.uri + "/chainCode/instantiate", {
+      method: 'post',
+      body: requestBody,
+      headers: {'Content-Type': 'application/json'},
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        callback(json)
+      });
   }
 };
