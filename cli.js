@@ -53,7 +53,9 @@ if (4 > process.argv.length) {
       case "install": {
         let clusterDefinition = fs.readFileSync(clusterDefinitionPath);
         clusterDefinition = JSON.parse(clusterDefinition.toString());
-        main.install(clusterDefinition, options);
+        main.install(clusterDefinition, options, (result) => {
+          console.log("hyshm install", result);
+        });
         break;
       }
       case "instantiate": {

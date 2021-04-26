@@ -61,10 +61,36 @@ module.exports = {
       }
     }
   },
-  install: function (clusterDefinition, options) {
-    console.log("hysh", "install", clusterDefinition, options);
+  install: function (clusterDefinition, options, callback) {
+    const fetch = require('node-fetch');
+    let requestBody = {
+      msp: {
+        identifier: options["organization-identifier"]
+      },
+      administrator: {
+        logOn: options["administrator-logon"],
+        password: options["administrator-password"]
+      },
+      chainCode: {
+        name: options["chaincode-name"],
+        identifier: options["chaincode-identifier"],
+        version: options["chaincode-version"]
+      }
+    };
+    requestBody = JSON.stringify(requestBody);
+    fetch(clusterDefinition.installer.uri + "/chainCode/install", {
+      method: 'post',
+      body: requestBody,
+      headers: {'Content-Type': 'application/json'},
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        callback(json)
+      });
   },
-  instantiate: function (clusterDefinition, args) {
-    console.log("hysh", "instantiate", clusterDefinition, options);
+  instantiate: function (clusterDefinition, args, callback) {
+    console.log("hyshm", "instantiate", clusterDefinition, options);
   }
 };
