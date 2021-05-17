@@ -8,8 +8,9 @@
     "hyshm": "./cli.js"
   },
   "scripts": {
-    "hyshm:test:install": "hyshm cluster.json install --organization-identifier Org1MSP --administrator-logon Admin@org1.example.com --administrator-password adminpw --chaincode-name shell-linux --chaincode-identifier b62b3cb05bbb4d2ab27bb1e67137ea3b --chaincode-version 1",
-    "hyshm:test:instantiate": "hyshm cluster.json instantiate --organization-identifier Org1MSP --administrator-logon Admin@org1.example.com --administrator-password adminpw --chaincode-name shell-linux --chaincode-version 1"
+    "hyshm:test:install": "hyshm cluster.json install --organization-identifier Org1MSP --administrator-logon Admin@org1.example.com --administrator-password adminpw --chaincode-name shell-linux --chaincode-identifier b62b3cb05bbb4d2ab27bb1e67137ea3c --chaincode-version 1",
+    "hyshm:test:instantiate": "hyshm cluster.json instantiate --organization-identifier Org1MSP --administrator-logon Admin@org1.example.com --administrator-password adminpw --chaincode-name b62b3cb05bbb4d2ab27bb1e67137ea3c --chaincode-version 1",
+    "hyshm:test:package": "hyshm cluster.json package --chaincode-name b62b3cb05bbb4d2ab27bb1e67137ea3c"
   },
   "author": "",
   "license": "ISC",

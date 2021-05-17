@@ -20,31 +20,31 @@ if (4 > process.argv.length) {
   // "hyshm" mode
   const options = stdio.getopt({
     "organization-identifier": {
-      args: 1,
-      required: true
+      args: [0, 1],
+      required: false
     },
     "administrator-logon": {
-      args: 1,
-      required: true
+      args: [0, 1],
+      required: false
     },
     "administrator-password": {
-      args: 1,
-      required: true
+      args: [0, 1],
+      required: false
     },
     "chaincode-name": {
-      args: 1,
-      required: true
+      args: [0, 1],
+      required: false
     },
     "chaincode-identifier": {
       args: [0, 1],
       required: false
     },
     "chaincode-version": {
-      args: 1,
-      required: true
+      args: [0, 1],
+      required: false
     },
     "format": {
-      args: 1,
+      args: [0, 1],
       required: false,
       default: "stream+json"
     }
@@ -69,6 +69,12 @@ if (4 > process.argv.length) {
         main.instantiate(clusterDefinition, options, (result) => {
           console.log(JSON.stringify(result));
         });
+        break;
+      }
+      case "package": {
+        let clusterDefinition = fs.readFileSync(clusterDefinitionPath);
+        clusterDefinition = JSON.parse(clusterDefinition.toString());
+        console.log(clusterDefinition.installer.uri + "/chainCode/package/" + options["chaincode-name"]);
         break;
       }
     }
